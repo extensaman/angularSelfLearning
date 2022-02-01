@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
 //import { Comment } from '../shared/comment';
 import { Dish } from '../shared/dish';
 
@@ -15,7 +15,7 @@ const DISH = {
   comments: [
        {
            rating: 5,
-           comment: 'Imagine all the eatables, living in conFusion!',
+           comment: 'Uthappizza Imagine all the eatables, living in conFusion!',
            author: 'John Lemon',
            date: '2012-10-16T17:57:28.556094Z'
        },
@@ -52,8 +52,7 @@ const DISH = {
 })
 export class DishdetailComponent implements OnInit {
 
-  dish = DISH;
-  //comments: Comment[] = DISH.comments;
+  @Input() dish: Dish = DISH;
 
   constructor() { }
 
