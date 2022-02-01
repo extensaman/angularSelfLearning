@@ -14,7 +14,7 @@ export const DISHES: Dish[] = [
       comments: [
         {
             rating: 5,
-            comment: 'Imagine all the eatables, living in conFusion!',
+            comment: 'Uthappizza Imagine all the eatables, living in conFusion!',
             author: 'John Lemon',
             date: '2012-10-16T17:57:28.556094Z'
         },
@@ -57,7 +57,7 @@ export const DISHES: Dish[] = [
       comments: [
         {
             rating: 5,
-            comment: 'Imagine all the eatables, living in conFusion!',
+            comment: 'Zuccipacoda Imagine all the eatables, living in conFusion!',
             author: 'John Lemon',
             date: '2012-10-16T17:57:28.556094Z'
         },
@@ -100,7 +100,7 @@ export const DISHES: Dish[] = [
       comments: [
         {
             rating: 5,
-            comment: 'Imagine all the eatables, living in conFusion!',
+            comment: 'Vadonut Imagine all the eatables, living in conFusion!',
             author: 'John Lemon',
             date: '2012-10-16T17:57:28.556094Z'
         },
@@ -143,7 +143,7 @@ export const DISHES: Dish[] = [
       comments: [
         {
             rating: 5,
-            comment: 'Imagine all the eatables, living in conFusion!',
+            comment: 'ElaiCheese Cake Imagine all the eatables, living in conFusion!',
             author: 'John Lemon',
             date: '2012-10-16T17:57:28.556094Z'
         },
