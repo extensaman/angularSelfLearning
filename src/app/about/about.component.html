@@ -64,5 +64,8 @@
             <div matLine>{{person.description}}</div>
         </mat-list-item>
     </mat-list>
+    <div fxFlex [hidden]="ceo">
+      <mat-spinner></mat-spinner><h4>Loding . . .  Please wait!</h4>
+    </div>
   </div>
 </div>
