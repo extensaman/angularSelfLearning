@@ -10,14 +10,23 @@ export class PromotionService {
   constructor() { }
 
   getPromotions(): Promise<Promotion[]> {
-    return Promise.resolve(PROMOTIONS);
+    return new Promise(resolve => {
+      //Simulate server delay with 2 second 
+      setTimeout(()=> resolve(PROMOTIONS), 2000);
+    });
 }
 
 getPromotion(id: string) : Promise<Promotion> {
-  return Promise.resolve(PROMOTIONS.filter((t) => (t.id === id))[0]);
+  return new Promise(resolve => {
+    //Simulate server delay with 2 second 
+    setTimeout(()=> resolve(PROMOTIONS.filter((t) => (t.id === id))[0]), 2000);
+  });
 }
 
 getFeaturedPromotion (): Promise<Promotion> {
-  return Promise.resolve(PROMOTIONS.filter(d => d.featured)[0]);
+  return new Promise(resolve => {
+    //Simulate server delay with 2 second 
+    setTimeout(()=> resolve(PROMOTIONS.filter(d => d.featured)[0]), 2000);
+  });
 }
 }
