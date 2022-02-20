@@ -12,6 +12,7 @@ import { Dish } from '../shared/dish';
 export class DishdetailComponent implements OnInit {
 
   dish: Dish | undefined;
+  
 
   constructor(private dishService: DishService,
     private route: ActivatedRoute,
