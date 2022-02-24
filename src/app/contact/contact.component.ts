@@ -62,42 +62,27 @@ export class ContactComponent implements OnInit {
     const form = this.feedbackForm;
 
     let field: keyof typeof this.formErrors;
-    let key2: keyof typeof this.validationMessages;
+    //let key2: keyof typeof this.validationMessages;
 
     for (field in this.formErrors) {
+      
       if (this.formErrors.hasOwnProperty(field)) {
         // clear previous error message (if any)
         this.formErrors[field] = '';
         const control = form.get(field);
         if (control && control.dirty && !control.valid) {
-          let messages = this.validationMessages[field];
-          
+          const messages = this.validationMessages[field];
+          let key2: keyof typeof messages;
           for (const key in control.errors) {
-            let key2: keyof typeof ContactComponent.validationMessages[field];
-            key2 = 'required';
-            switch(key) {
-              case 'required':
-                key2 = 'required';
-                break;
-                case 'minlength':
-                  key2 = 'minlength';
-                  break;
-                  case 'maxlength':
-                    key2 = 'maxlength';
-                    break;
-                    case 'pattern':
-                      key2 = 'pattern';
-                      break;
-            }
             if (control.errors.hasOwnProperty(key)) {
-              
-
-              this.formErrors[field] += messages[key] + ' key= ' + key + " key2= " + key2 + " field= " + field;
+              key2 = "required";
+              this.formErrors[field] += messages[key2] + ' ' + key;
             }
           }
         }
       }
     }
+   
   }
 
   ngOnInit(): void {
