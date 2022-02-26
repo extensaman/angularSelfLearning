@@ -13,6 +13,7 @@ import { switchMap } from 'rxjs';
 export class DishdetailComponent implements OnInit {
 
   dish: Dish | undefined;
+  dishCopy: Dish | undefined;
   dishIds: string[] | any;
   prev: string | undefined;
   next: string | undefined;
@@ -27,7 +28,7 @@ export class DishdetailComponent implements OnInit {
     this.dishService.getDishIds().subscribe({next: dishIds => this.dishIds = dishIds,
       error: errmes => this.errMsg = <any>errmes});
     this.route.params.pipe(switchMap((params: Params) => this.dishService.getDish(params['id'])))
-      .subscribe({next: (dish) => {this.dish = dish; this.setPrevNext(dish.id);}, 
+      .subscribe({next: (dish) => {this.dish = this.dishCopy = dish; this.setPrevNext(dish.id);}, 
       error: errmes => this.errMsg = <any>errmes});
   }
 
