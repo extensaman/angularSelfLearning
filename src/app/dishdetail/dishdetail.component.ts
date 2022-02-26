@@ -18,7 +18,7 @@ export class DishdetailComponent implements OnInit {
   next: string | undefined;
 
   constructor(private dishService: DishService,
-    @Inject('BaseURL') public BaseURL: string,
+    @Inject('BaseURL') public baseURL: string,
     private route: ActivatedRoute,
     private location: Location) { }
 
