@@ -16,6 +16,7 @@ export class DishdetailComponent implements OnInit {
   dishIds: string[] | any;
   prev: string | undefined;
   next: string | undefined;
+  errMsg: string | any;
 
   constructor(private dishService: DishService,
     @Inject('BaseURL') public baseURL: string,
@@ -23,9 +24,11 @@ export class DishdetailComponent implements OnInit {
     private location: Location) { }
 
   ngOnInit(): void {
-    this.dishService.getDishIds().subscribe(dishIds => this.dishIds = dishIds);
+    this.dishService.getDishIds().subscribe({next: dishIds => this.dishIds = dishIds,
+      error: errmes => this.errMsg = <any>errmes});
     this.route.params.pipe(switchMap((params: Params) => this.dishService.getDish(params['id'])))
-      .subscribe((dish) => {this.dish = dish; this.setPrevNext(dish.id);});
+      .subscribe({next: (dish) => {this.dish = dish; this.setPrevNext(dish.id);}, 
+      error: errmes => this.errMsg = <any>errmes});
   }
 
   setPrevNext(dishId: string | any) {
