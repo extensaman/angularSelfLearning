@@ -10,12 +10,15 @@ import { Leader } from '../shared/leader';
 export class AboutComponent implements OnInit {
 
   ceo: Leader[] | undefined;
-
+  errMsg: string | any;
+  
   constructor(private leaderService: LeaderService, 
     @Inject('BaseURL') public baseURL: string) { }
 
   ngOnInit(): void {
-    this.leaderService.getLeaders().subscribe((leader) => this.ceo = leader);
+    this.leaderService.getLeaders()
+    .subscribe({next: (leader) => this.ceo = leader,
+    error: errmes => this.errMsg = <any>errmes}); 
   }
 
 }
